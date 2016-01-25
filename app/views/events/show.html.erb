@@ -1,0 +1,35 @@
+<div class="container">
+
+
+  <p>
+    <strong>Event date:</strong>
+    <%= @event.event_date %>
+  </p>
+
+  <p>
+    <strong>Event time:</strong>
+    <%= @event.event_time.strftime("%I:%M%p %Z") %>
+  </p>
+
+  <p>
+    <strong>Mentor:</strong>
+    <%= @event.mentor %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= @event.location %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
+
+  <% if can? :edit, @event %>
+    <td><%= link_to 'Edit', edit_event_path(@event) %></td>
+    <td><%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+  <%= link_to 'Back', events_path %>
+  <br><br>
+</div>
